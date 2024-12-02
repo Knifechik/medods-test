@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+
+  login-svc:
+    build:
+      context: .
+      dockerfile: ./cmd/login/docker/Dockerfile
+    container_name: "login-svc"
+    restart: always
+    volumes:
+      - "./cmd/login/config.yml:/build/config.yml"
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "user123"
+      POSTGRES_PASSWORD: "pass123"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "data:/var/lib/postgresql/data"
+volumes:
+  data:
