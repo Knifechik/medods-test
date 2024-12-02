@@ -13,4 +13,4 @@
 Endpoint login localhost:8080/login/(UUID)\
 Возвращает два куки с access и refresh токенам.\
 Endpoint refresh localhost:8080/refresh\
-Принимает два куки access и рефреш, возвращает два новых куки.
+Принимает два куки access и refresh, возвращает два новых куки.
